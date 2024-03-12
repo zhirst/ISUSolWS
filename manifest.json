@@ -1,0 +1,25 @@
+{
+	"manifest_version": 2,
+
+	"name": "ServiceNow WebScraper",
+	"description": "Scrapes ticket number, KB number, and assignment group from your current ticket.",
+	"icons": {
+		"128":"ISU_SC_Logo.png"
+	},
+	"version": "2.0",
+	"author": "@zachhirst",
+
+	"background": {
+		"scripts": ["popup.js"],
+		"persistent": true
+	},
+
+	"permissions": [
+        "tabs",
+        "http://*/",
+        "https://*/"
+    ],
+	"browser_action": {
+		"default_popup": "popup.html"
+	}
+}
