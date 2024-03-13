@@ -23,6 +23,8 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	var kbValue = document.getElementById('kb').value;
 	var assignmentGroupValue = document.getElementById('assignmentgroup').value;
 
+	console.log('Raw kbValue: ', kbValue, '. Formatting...');
+	
 	try{
 		if(kbValue.toLowerCase().startsWith('kb') && /^\d{7}$/.test(kbValue.slice(2))) {
 			return 'KB' + kbValue.slice(2);
@@ -33,6 +35,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
 		console.log('Error formatting kbValue', error);
 	}
 
+	console.log('Success formatting kbValue');
 	console.log('Form Values: ', {incValue, kbValue, assignmentGroupValue});
 
 	var formURL = 'https://forms.office.com/Pages/ResponsePage.aspx?id=mthHA3QB002t6zM5yJw19YVBTy6hCVZEnwuXvhFA35JUODdSNlU0RUlVSlRPUk1MT0w2SktCRVRLQyQlQCN0PWcu';
