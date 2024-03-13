@@ -13,6 +13,7 @@ chrome.runtime.onMessage.addListener(function (message) {
 	
 	var title_parts = message.title.split(" ");
 	globalINC = title_parts.find(part => part.startsWith('INC'));
+	//TODO Check if the first part starts with INC
 
 	console.log('INC: ' + globalINC);
 	document.getElementById('title').innerHTML = globalINC;
@@ -61,10 +62,15 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	//TODO flash a sent message onto the popup.html 
 	
 	/**
-	 * TODO name field addition
+	 * TODO POST error flashing on main html
+	 * 
+	 * TODO name field addition (persistent storage and editing of username)
+	 * TODO settings/info page 
 	 * 
 	 * TODO autofilling form from list/live search of assignment groups 
 	 * 
-	 * TODO change h3 in popup.html 
+	 * TODO allow editing of ticket number that is grabbed at the start of the chrome extension:
+	 * 	- change first field to text box that is prefilled with the grabbed title value 
+	 *  - see photos for flowchart
 	 */
 })

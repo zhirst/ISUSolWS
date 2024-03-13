@@ -2,24 +2,30 @@
 <html>
 	<head>
 		<title>ServiceNow WebScraper</title>
-		<style>
-			body {
-				background-color: #92620ad2;
-				width: 300px;
-				height: 225px;
-				padding: 5px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
 		<img src="ISU_SC_NASCAR_Logo.png" style="width:150px; height:50px;">
-		<h3>Solution Center Ticket Escalation Scraper</h3>
+		<h3>ISU Solution Center Ticket Escalation Tool</h3>
 		<p id='title'>This should change to the scraped INC!</p>
-		<input type="text" id="kb" placeholder="plz enter a kb 'KB0013460'">
+		<input type="text" id="kb" placeholder="Enter a KB: KB0013460">
 		<br><br>
-		<input type="text" id="assignmentgroup" placeholder="plz enter assignment group">
+		<!-- <input type="text" id="assignmentgroup" placeholder="plz enter assignment group"> -->
+		<div id="myDropdown" class="dropdown-content">
+			<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+			<div id="dropdownOptions">
+				<a href="#about">About</a>
+				<a href="#base">Base</a>
+				<a href="#blog">Blog</a>
+				<a href="#contact">Contact</a>
+				<a href="#custom">Custom</a>
+				<a href="#support">Support</a>
+				<a href="#tools">Tools</a>
+			</div>
+		</div>
 		<br><br>
 		<button id="sendButton">Send Metrics</button><p id="errorMessage" style="color:rgb(255, 255, 255);"></p>
+		<script src="dropdown.js"></script>
 		<script src="popup.js"></script>
 	</body>
 </html>
