@@ -1,12 +1,12 @@
 {
 	"manifest_version": 2,
 
-	"name": "ServiceNow WebScraper",
-	"description": "Scrapes ticket number, KB number, and assignment group from your current ticket.",
+	"name": "ServiceNow Escalation Tool",
+	"description": "Scrapes ticket number, you enter KB number, and assignment group from your current ticket.",
 	"icons": {
 		"128":"ISU_SC_Logo.png"
 	},
-	"version": "2.0",
+	"version": "3.0",
 	"author": "@zachhirst",
 
 	"background": {
