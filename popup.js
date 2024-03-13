@@ -6,12 +6,11 @@ window.addEventListener('load', function (evt) {
 	});;
 });
 
-//TODO grab the INC number from title instead of first field 
 chrome.runtime.onMessage.addListener(function (message) {
 	console.log('popup.js received message from payload.js');
 	
-	var title_parts = message.title.split(" | ");
-	var title_first_part = title_parts[0]; 
+	var title_parts = message.title.split(" ");
+	var title_first_part = title_parts.find(part => part.startsWith('INC'));
 
 	console.log('INC: ' + title_first_part);
 	document.getElementById('title').innerHTML = title_first_part;
@@ -52,9 +51,8 @@ document.getElementById('sendButton').addEventListener('click', function() {
     });
 
 	console.log('Form data sent');
-	
+
 	/**
-	 * 
 	 * 
 	 * TODO name field addition
 	 * 
