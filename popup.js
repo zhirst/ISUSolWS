@@ -60,16 +60,15 @@ document.getElementById('sendButton').addEventListener('click', function() {
 
 	console.log('Form data sent');
 	//TODO flash a sent message onto the popup.html 
-	
+
+
+	//TODO update backend to take in new search/dropdown menu for assignment groups
+	//TODO POST error flashing on main html
+	//TODO name field addition (persistent storage and editing of username)
+	//TODO settings/info page 
+	//TODO autofilling form from list/live search of assignment groups 
+	//TODO allow editing of ticket number that is grabbed at the start of the chrome extension:
 	/**
-	 * TODO POST error flashing on main html
-	 * 
-	 * TODO name field addition (persistent storage and editing of username)
-	 * TODO settings/info page 
-	 * 
-	 * TODO autofilling form from list/live search of assignment groups 
-	 * 
-	 * TODO allow editing of ticket number that is grabbed at the start of the chrome extension:
 	 * 	- change first field to text box that is prefilled with the grabbed title value 
 	 *  - see photos for flowchart
 	 */
