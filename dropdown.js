@@ -6,6 +6,21 @@ var showAllCheckbox = document.getElementById('showAllCheckbox');
 // Initialize the active option index
 var activeOptionIndex = -1;
 
+fetch('data/assignmentgroups.txt')
+  .then(response => response.text())
+  .then(data => {
+    // Split the text file into lines
+    const lines = data.split('\n');
+
+    // Get the dropdownOptions div
+    const dropdownOptions = document.getElementById('dropdownOptions');
+
+    // For each line, insert it as HTML into the dropdownOptions div
+    lines.forEach(line => {
+      dropdownOptions.innerHTML += line;
+    });
+});
+
 // Add an event listener for the input event
 inputField.addEventListener('input', function() {
   // Reset the active option index
