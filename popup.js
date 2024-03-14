@@ -39,6 +39,14 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	console.log('Success formatting kbValue: ', KB);
 
 	var assignmentGroupValue = document.getElementById('myInput').value;
+	if(assignmentGroupValue == 'Enter an assignment group' || assignmentGroupValue == '')
+	{
+		document.getElementById('errorMessage').textContent = 'Please choose an assignment group';
+		console.error('Please choose an assignment group');
+		return;
+	} else {
+		document.getElementById('errorMessage').textContent = '';
+	}
 	console.log('Assignment Group grabbed: ', assignmentGroupValue);
 
 	console.log('Form Values: ', {incValue, KB, assignmentGroupValue});
@@ -61,8 +69,8 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	//TODO flash a sent message onto the popup.html 
 	//TODO POST error flashing on main html
 	//TODO name field addition (persistent storage and editing of username)
-	//TODO settings/info page 
-	//TODO import the list of assignment groups from service now 
+	//TODO settings/info page (persistent storage and editing of settings)
+	//TODO flash please choose an assignment group if they try to submit without choosing one
 	//TODO allow editing of ticket number that is grabbed at the start of the chrome extension:
 	/**
 	 * 	- change first field to text box that is prefilled with the grabbed title value 
