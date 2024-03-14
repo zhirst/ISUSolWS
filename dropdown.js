@@ -37,7 +37,7 @@ inputField.addEventListener('input', function() {
       // Loop through all options and hide them
       for (var j = 0; j < options.length; j++) {
         options[j].style.display = "none";
-      }
+        }
     });
   }
 });
@@ -57,5 +57,21 @@ showAllCheckbox.addEventListener('change', function() {
       // If the checkbox is unchecked, hide all the options
       option.style.display = "none";
     }
+
+    // Add event listener for click event on each option
+    option.addEventListener('click', function(e) {
+      // Prevent the default action
+      e.preventDefault();
+  
+      // Set the value of the input field to the text of the clicked option
+      inputField.value = this.textContent || this.innerText;
+      // Loop through all options and hide them
+      for (var j = 0; j < options.length; j++) {
+        options[j].style.display = "none";
+      }
+
+      // Deselect the show all checkbox when an item is clicked
+      showAllCheckbox.checked = false;
+    });
   }
 });

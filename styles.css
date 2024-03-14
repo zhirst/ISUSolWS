@@ -35,6 +35,7 @@ body {
 .dropdown-content a {
   color: black;
   padding: 6px 8px;
+  z-index: 2;
   text-decoration: none;
   background-color: #ffffff;
 }
@@ -47,6 +48,3 @@ body {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
-
-/*TODO can i have a display all option in the dropdown menu */
-/* TODO make dropdown clickable when show all is selected *
