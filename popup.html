@@ -12,7 +12,10 @@
 		<br><br>
 		<!-- <input type="text" id="assignmentgroup" placeholder="plz enter assignment group"> -->
 		<div id="myDropdown" class="dropdown-content">
-			<input type="text" placeholder="Enter an assignment group" id="myInput" onkeyup="filterFunction()">
+			<div id="showall" style="display: flex; align-items: center;">
+				<input type="text" placeholder="Enter an assignment group" id="myInput" onkeyup="filterFunction()">
+				<input type="checkbox" id="showAllCheckbox"> Show All
+			</div>
 			<div id="dropdownOptions">
 				<a href="#about" style="display: none;">About</a>
 				<a href="#base" style="display: none;">Base</a>
@@ -23,6 +26,7 @@
 				<a href="#tools" style="display: none;">Tools</a>
 			</div>
 		</div>
+		
 		<br><br>
 		<button id="sendButton">Send Metrics</button><p id="errorMessage" style="color:rgb(255, 255, 255);"></p>
 		<script src="dropdown.js"></script>

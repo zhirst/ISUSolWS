@@ -25,7 +25,7 @@ body {
 .dropdown-content {
   display: block;
   position: absolute;
-  background-color: #ffffff;
+  background-color: transparent;
   z-index: 1;
   max-height: 300px; /* TODO Test/resize with all options once they are imported */
   overflow-y: auto;
@@ -36,15 +36,17 @@ body {
   color: black;
   padding: 6px 8px;
   text-decoration: none;
+  background-color: #ffffff;
 }
 
 /* Change background color of dropdown links when focused */
-.dropdown-content a:focus { background-color: #0000004f; }
+.dropdown-content a:focus { background-color: #6d6a6a; }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #0000004f}
+.dropdown-content a:hover {background-color: #6d6a6a}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
 /*TODO can i have a display all option in the dropdown menu */
+/* TODO make dropdown clickable when show all is selected *

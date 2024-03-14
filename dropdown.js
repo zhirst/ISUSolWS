@@ -1,6 +1,7 @@
-// Get the input field and the container of the dropdown options
+// Get the input field and the container of different html elements
 var inputField = document.getElementById('myInput');
 var dropdownOptions = document.getElementById('dropdownOptions');
+var showAllCheckbox = document.getElementById('showAllCheckbox');
 
 // Initialize the active option index
 var activeOptionIndex = -1;
@@ -38,5 +39,23 @@ inputField.addEventListener('input', function() {
         options[j].style.display = "none";
       }
     });
+  }
+});
+
+// Add an event listener for the change event
+showAllCheckbox.addEventListener('change', function() {
+  // Get all the dropdown options
+  var options = dropdownOptions.getElementsByTagName('a');
+
+  // Loop through the options and show or hide them based on the state of the checkbox
+  for (var i = 0; i < options.length; i++) {
+    var option = options[i];
+    if (showAllCheckbox.checked) {
+      // If the checkbox is checked, show all the options
+      option.style.display = "block";
+    } else {
+      // If the checkbox is unchecked, hide all the options
+      option.style.display = "none";
+    }
   }
 });
