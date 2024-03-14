@@ -21,7 +21,17 @@ chrome.runtime.onMessage.addListener(function (message) {
 document.getElementById('sendButton').addEventListener('click', function() {
 	console.log('sendButton clicked');
 
-	var incValue = globalINC;
+	var incValue = document.getElementById('title').value.trim();
+	console.log('Raw INC grabbed: ', incValue, 'Formatting...');
+	var incNumber = incValue.slice(3);
+	if(incNumber.length != 7)
+	{ 
+		document.getElementById('errorMessage').textContent = 'Please enter a valid INC number';
+		console.error('INC number should be exactly 7 digits long'); 
+		return;
+	} else {
+		document.getElementById('errorMessage').textContent = '';
+	}
 	console.log('INC grabbed: ', incValue);
 	
 	var kbValue = document.getElementById('kb').value.trim();
@@ -66,13 +76,9 @@ document.getElementById('sendButton').addEventListener('click', function() {
     });
 
 	console.log('Form data sent');
-	//TODO flash a sent message onto the popup.html 
-	//TODO POST error flashing on main html
-	//TODO name field addition (persistent storage and editing of username)
-	//TODO settings/info page (persistent storage and editing of settings)
-	//TODO allow editing of ticket number that is grabbed at the start of the chrome extension:
-	/**
-	 * 	- change first field to text box that is prefilled with the grabbed title value 
-	 *  - see photos for flowchart
-	 */
 })
+
+//TODO flash a sent message onto the popup.html 
+//TODO POST error flashing on main html
+//TODO name field addition (persistent storage and editing of username)
+//TODO settings/info page (persistent storage and editing of settings)
