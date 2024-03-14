@@ -15,7 +15,7 @@ chrome.runtime.onMessage.addListener(function (message) {
 	globalINC = title_parts.find(part => part.startsWith('INC'));
 
 	console.log('INC: ' + globalINC);
-	document.getElementById('title').innerHTML = globalINC;
+	document.getElementById('title').value = globalINC;
 });
 
 document.getElementById('sendButton').addEventListener('click', function() {
@@ -70,7 +70,6 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	//TODO POST error flashing on main html
 	//TODO name field addition (persistent storage and editing of username)
 	//TODO settings/info page (persistent storage and editing of settings)
-	//TODO flash please choose an assignment group if they try to submit without choosing one
 	//TODO allow editing of ticket number that is grabbed at the start of the chrome extension:
 	/**
 	 * 	- change first field to text box that is prefilled with the grabbed title value 
