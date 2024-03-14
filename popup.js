@@ -66,7 +66,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	//TODO POST error flashing on main html
 	//TODO name field addition (persistent storage and editing of username)
 	//TODO settings/info page 
-	//TODO autofilling form from list/live search of assignment groups 
+	//TODO import the list of assignment groups from service now 
 	//TODO allow editing of ticket number that is grabbed at the start of the chrome extension:
 	/**
 	 * 	- change first field to text box that is prefilled with the grabbed title value 
