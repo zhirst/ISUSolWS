@@ -38,7 +38,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	var KB = 'KB' + kbnumber;
 	console.log('Success formatting kbValue: ', KB);
 
-	var assignmentGroupValue = document.getElementById('assignmentgroup').value;
+	var assignmentGroupValue = document.getElementById('myInput').value;
 	console.log('Assignment Group grabbed: ', assignmentGroupValue);
 
 	console.log('Form Values: ', {incValue, KB, assignmentGroupValue});
@@ -59,9 +59,6 @@ document.getElementById('sendButton').addEventListener('click', function() {
 
 	console.log('Form data sent');
 	//TODO flash a sent message onto the popup.html 
-
-	//TODO keybinding to auto open the chrome tab 
-	//TODO update backend to take in new search/dropdown menu for assignment groups
 	//TODO POST error flashing on main html
 	//TODO name field addition (persistent storage and editing of username)
 	//TODO settings/info page 
