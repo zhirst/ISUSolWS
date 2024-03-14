@@ -8,12 +8,19 @@
 	},
 	"version": "3.0",
 	"author": "@zachhirst",
-
+	"commands": {
+		"_execute_browser_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Y",
+				"mac": "Command+Shift+Y"
+			},
+			"description": "Opens the extension"
+		}
+	},
 	"background": {
 		"scripts": ["popup.js"],
 		"persistent": true
 	},
-
 	"permissions": [
         "tabs",
         "http://*/",

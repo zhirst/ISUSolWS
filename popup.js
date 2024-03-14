@@ -13,7 +13,6 @@ chrome.runtime.onMessage.addListener(function (message) {
 	
 	var title_parts = message.title.split(" ");
 	globalINC = title_parts.find(part => part.startsWith('INC'));
-	//TODO Check if the first part starts with INC
 
 	console.log('INC: ' + globalINC);
 	document.getElementById('title').innerHTML = globalINC;
@@ -61,7 +60,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	console.log('Form data sent');
 	//TODO flash a sent message onto the popup.html 
 
-
+	//TODO keybinding to auto open the chrome tab 
 	//TODO update backend to take in new search/dropdown menu for assignment groups
 	//TODO POST error flashing on main html
 	//TODO name field addition (persistent storage and editing of username)
