@@ -8,7 +8,6 @@
 	},
 	"version": "5.0",
 	"author": "@zachhirst",
-	"options_page": "settings.html",
 	"commands": {
 		"_execute_browser_action": {
 			"suggested_key": {

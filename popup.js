@@ -6,6 +6,11 @@ window.addEventListener('load', function (evt) {
 	chrome.extension.getBackgroundPage().chrome.tabs.executeScript(null, {
 		file: 'payload.js'
 	});;
+
+	chrome.storage.sync.get('username', function(data) {
+        console.log('Username currently is ' + data.username);
+        document.getElementById('username').value = data.username || '';
+    });
 });
 
 chrome.runtime.onMessage.addListener(function (message) {
@@ -59,6 +64,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	}
 	console.log('Assignment Group grabbed: ', assignmentGroupValue);
 
+	//TODO check sc email is set 
 	console.log('Form Values: ', {incValue, KB, assignmentGroupValue});
 
 	var formURL = 'https://forms.office.com/Pages/ResponsePage.aspx?id=mthHA3QB002t6zM5yJw19YVBTy6hCVZEnwuXvhFA35JUODdSNlU0RUlVSlRPUk1MT0w2SktCRVRLQyQlQCN0PWcu';
@@ -76,6 +82,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
     });
 
 	console.log('Form data sent');
+	//TODO flash a sent message onto the popup.html when form is sent? 
 });
 
 document.getElementById('settings-icon').addEventListener('click', function() {
@@ -87,6 +94,18 @@ document.getElementById('settings-icon').addEventListener('click', function() {
     }
 });
 
-//TODO flash a sent message onto the popup.html 
-//TODO name field addition (persistent storage and editing of username in settings page)
-//TODO update username (no username set to the username once set)
+document.getElementById('setButton').addEventListener('click', function() {
+    let username = document.getElementById('username').value;
+    chrome.storage.sync.set({username: username}, function() {
+        console.log('Username is set to ' + username);
+    });
+});
+
+//TODO remove before deployment
+document.getElementById('clearButton').addEventListener('click', function() {
+    chrome.storage.sync.remove('username', function() {
+        console.log('Username has been cleared.');
+        // You can also clear the value of the username input field
+        document.getElementById('username').value = '';
+    });
+});
