@@ -2,10 +2,11 @@
 <html>
 	<head>
 		<title>ServiceNow WebScraper</title>
-		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="popup.css">
 	</head>
 	<body>
 		<img src="img/ISU_SC_NASCAR_Logo.png" style="width:150px; height:50px;">
+		<img id="settings-icon" src="img/settings.png" alt="Settings" style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; cursor: pointer;">
 		<h3>ISU Solution Center Ticket Escalation Tool</h3>
 		<input type="text" id="title" placeholder="Enter an INC: INC1234567">
 		<br><br>
@@ -22,7 +23,10 @@
 		</div>
 		<br><br><br>
 		<button id="sendButton">Send Metrics</button><p id="errorMessage" style="color:rgb(255, 255, 255);"></p>
+		<br><br>
+		<div id="settingsOptions" style="display: none;">Hello World</div>
 		<script src="dropdown.js"></script>
 		<script src="popup.js"></script>
+		<script src="settings.js"></script>
 	</body>
 </html>

@@ -76,7 +76,16 @@ document.getElementById('sendButton').addEventListener('click', function() {
     });
 
 	console.log('Form data sent');
-})
+});
+
+document.getElementById('settings-icon').addEventListener('click', function() {
+    var settingsOptions = document.getElementById('settingsOptions');
+    if (settingsOptions.style.display === 'none') {
+        settingsOptions.style.display = 'block';
+    } else {
+        settingsOptions.style.display = 'none';
+    }
+});
 
 //TODO flash a sent message onto the popup.html 
 //TODO POST error flashing on main html?
