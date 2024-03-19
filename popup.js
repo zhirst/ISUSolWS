@@ -72,7 +72,6 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	}
 	console.log('Assignment Group grabbed: ', assignmentGroupValue);
 
-	//format the email to add @iastate.edu
 	if(document.getElementById('username').value == '')
 	{
 		document.getElementById('errorMessage').textContent = 'Please set your SC Email in settings';
@@ -81,7 +80,11 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	} else {
 		document.getElementById('errorMessage').textContent = '';	
 	}
-	console.log('Form Values: ', {incValue, KB, assignmentGroupValue});
+	var username = document.getElementById('username').value;
+	username += '@iastate.edu';
+	console.log('Username grabbed: ', username);
+
+	console.log('Form Values: ', {username, incValue, KB, assignmentGroupValue});
 
 	var formURL = 'https://forms.office.com/Pages/ResponsePage.aspx?id=mthHA3QB002t6zM5yJw19YVBTy6hCVZEnwuXvhFA35JUODdSNlU0RUlVSlRPUk1MT0w2SktCRVRLQyQlQCN0PWcu';
 	var formData = new FormData();
@@ -112,6 +115,15 @@ document.getElementById('settings-icon').addEventListener('click', function() {
 
 document.getElementById('setButton').addEventListener('click', function() {
     let username = document.getElementById('username').value;
+
+	if(username.includes('@')) {
+		document.getElementById('errorMessage').textContent = 'Please enter your NetID without the @iastate.edu';
+		console.error('Please enter your NetID without the @iastate.edu');
+		return;
+	} else {
+		document.getElementById('errorMessage').textContent = '';
+	}
+
     chrome.storage.sync.set({username: username}, function() {
         console.log('Username is set to ' + username);
     });
@@ -150,7 +162,7 @@ document.getElementById('resetButton').addEventListener('click', function() {
     document.body.style.backgroundColor = defaultColor;
     document.getElementById('colorpicker').value = defaultColor;
     document.body.style.color = isColorDark(defaultColor) ? 'white' : 'black';
-    // Save the default color to chrome.storage.sync
+
     chrome.storage.sync.set({backgroundColor: defaultColor}, function() {
         console.log('Background color is reset to ' + defaultColor);
     });
