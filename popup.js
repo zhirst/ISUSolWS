@@ -11,6 +11,14 @@ window.addEventListener('load', function (evt) {
         console.log('Username currently is ' + data.username);
         document.getElementById('username').value = data.username || '';
     });
+
+	chrome.storage.sync.get('backgroundColor', function(data) {
+        let color = data.backgroundColor || '#92620ad2'; 
+        document.body.style.backgroundColor = color;
+        document.getElementById('colorpicker').value = color;
+
+		console.log('Color currently is ' + color);
+    });
 });
 
 chrome.runtime.onMessage.addListener(function (message) {
@@ -64,7 +72,15 @@ document.getElementById('sendButton').addEventListener('click', function() {
 	}
 	console.log('Assignment Group grabbed: ', assignmentGroupValue);
 
-	//TODO check sc email is set 
+	//format the email to add @iastate.edu
+	if(document.getElementById('username').value == '')
+	{
+		document.getElementById('errorMessage').textContent = 'Please set your SC Email in settings';
+		console.error('Please set your SC Email');
+		return;
+	} else {
+		document.getElementById('errorMessage').textContent = '';	
+	}
 	console.log('Form Values: ', {incValue, KB, assignmentGroupValue});
 
 	var formURL = 'https://forms.office.com/Pages/ResponsePage.aspx?id=mthHA3QB002t6zM5yJw19YVBTy6hCVZEnwuXvhFA35JUODdSNlU0RUlVSlRPUk1MT0w2SktCRVRLQyQlQCN0PWcu';
@@ -79,7 +95,7 @@ document.getElementById('sendButton').addEventListener('click', function() {
         method: 'POST',
         mode: 'no-cors',
         body: formData
-    });
+    }); //TODO make this actually send the form data correctly 
 
 	console.log('Form data sent');
 	//TODO flash a sent message onto the popup.html when form is sent? 
@@ -101,11 +117,41 @@ document.getElementById('setButton').addEventListener('click', function() {
     });
 });
 
-//TODO remove before deployment
-document.getElementById('clearButton').addEventListener('click', function() {
-    chrome.storage.sync.remove('username', function() {
-        console.log('Username has been cleared.');
-        // You can also clear the value of the username input field
-        document.getElementById('username').value = '';
+function isColorDark(color) {
+    var r, g, b, hsp; 
+    if (color.match(/^rgb/)) {
+        color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+        r = color[1];
+        g = color[2];
+        b = color[3];
+    } else {
+        color = +("0x" + color.slice(1).replace(color.length < 5 && /./g, '$&$&'));
+        r = color >> 16;
+        g = color >> 8 & 255;
+        b = color & 255;
+    }
+    hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+    return hsp<127.5;
+};
+
+document.getElementById('colorpicker').addEventListener('input', function() {
+    let color = this.value;
+    document.body.style.backgroundColor = color;
+
+    chrome.storage.sync.set({backgroundColor: color}, function() {
+        console.log('Background color is set to ' + color);
+    });
+
+	document.body.style.color = isColorDark(color) ? 'white' : 'black';
+});
+
+document.getElementById('resetButton').addEventListener('click', function() {
+    let defaultColor = '#92620ad2';
+    document.body.style.backgroundColor = defaultColor;
+    document.getElementById('colorpicker').value = defaultColor;
+    document.body.style.color = isColorDark(defaultColor) ? 'white' : 'black';
+    // Save the default color to chrome.storage.sync
+    chrome.storage.sync.set({backgroundColor: defaultColor}, function() {
+        console.log('Background color is reset to ' + defaultColor);
     });
 });

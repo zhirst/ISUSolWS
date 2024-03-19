@@ -1,6 +1,5 @@
 /* Popup body css */ 
 body {
-    background-color: #92620ad2;
     width: 300px;
     height: 450px;
     padding: 5px;
@@ -10,6 +9,13 @@ hr {
   border: none;
   border-top: 1px solid black;
 }
+
+#colorpicker {
+  height: 19px;
+  border: none;
+  cursor: pointer;
+}
+
 /* error message */
 #errorMessage {
   position: absolute;
