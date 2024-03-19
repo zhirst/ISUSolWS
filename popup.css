@@ -6,6 +6,12 @@ body {
     padding: 5px;
 }
 
+/* error message */
+#errorMessage {
+  position: absolute;
+  width: 100%;  
+}
+
 /* The search field */
 #myDropdown {
   box-sizing: border-box;

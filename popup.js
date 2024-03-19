@@ -88,7 +88,5 @@ document.getElementById('settings-icon').addEventListener('click', function() {
 });
 
 //TODO flash a sent message onto the popup.html 
-//TODO POST error flashing on main html?
 //TODO name field addition (persistent storage and editing of username in settings page)
-//TODO settings/info page (persistent storage and editing of settings)
-//TODO make a settings icon 
+//TODO update username (no username set to the username once set)
